@@ -1,0 +1,28 @@
+name: Workflow initiated by ${{ github.actor }}
+
+on:
+  pull_request:
+
+env:
+  GITHUB_ACTIONS: "true"
+
+jobs:
+  github-task-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display GITHUB_ACTIONS environment variable
+        run: |
+          echo "GITHUB_ACTIONS value: $GITHUB_ACTIONS"
+
+      - name: Display branch and repository name
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Source Branch (Head): ${{ github.head_ref }}"
+          echo "Target Branch (Base): ${{ github.base_ref }}"
+
+      - name: Display triggering event
+        run: |
+          echo "Triggering Event: ${{ github.event_name }}"
