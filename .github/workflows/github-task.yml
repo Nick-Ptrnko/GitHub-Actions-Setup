@@ -1,4 +1,5 @@
-name: Workflow initiated by ${{ github.actor }}
+name: GitHub Task Workflow
+run-name: Workflow initiated by ${{ github.actor }}
 
 on:
   pull_request:
